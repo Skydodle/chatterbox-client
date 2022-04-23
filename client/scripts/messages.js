@@ -5,9 +5,19 @@
 var Messages = {
 
   // TODO: Define how you want to store your messages.
-  _data: null,
+  _data: {},
 
+  add: function(serverData) {
+    Messages._data[message.message_id] = message;
+    console.log(serverData);
+  },
   // TODO: Define methods which allow you to retrieve from,
   // add to, and generally interact with the messages.
-
+  // update (takes in all data received from the server) and put it into our data object
+  update: function(serverData, callback) {
+    for(let message of serverData) {
+      Messages._data[message.message_id] = message;
+    }
+    callback();
+  },
 };
