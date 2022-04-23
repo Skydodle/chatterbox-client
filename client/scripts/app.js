@@ -15,27 +15,25 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
 
-    // Fetch initial batch of messages
+
     App.startSpinner();
+    // Fetch initial batch of messages
     App.fetch(App.stopSpinner);
 
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
-    // setInterval(App.initialize, 5000);
+    setInterval(App.fetch, 5000);
   },
 
   fetch: function(callback = () => {}) {
-    //cb = success callback
+    // fetch all message data from server using parse ajax
     Parse.readAll((data) => {
-      // examine the response from the server request:
-      //change from loggin our data to storing our data
-      // store it in message.js
-      Messages.update(data, MessagesView.render);
-      // not sure what other operation needs to be done in update for call back
-      callback();
-      //callback stops the spinner or any action specified
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
+      Messages.update(data, MessagesView.render); // setting render as call back, so update can decide when to run render
+      Rooms.udpate(data, RoomsView.render);
+      //callback stops the spinner or any action specified // from line 20
+      callback();
     });
   },
 

@@ -15,7 +15,7 @@ var FormView = {
     event.preventDefault();
     const message = {
       'username': App.username,
-      'text' : FormView.$form.find('#message').val(),
+      'text': FormView.$form.find('#message').val(),
       //event.target.val()
     };
     console.log(message);

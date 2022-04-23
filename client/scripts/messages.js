@@ -15,7 +15,7 @@ var Messages = {
   // add to, and generally interact with the messages.
   // update (takes in all data received from the server) and put it into our data object
   update: function(serverData, callback) {
-    for(let message of serverData) {
+    for (let message of serverData) {
       Messages._data[message.message_id] = message;
     }
     callback();

@@ -14,15 +14,15 @@ var MessagesView = {
   render: function() {
     // Render all messages
     MessagesView.$chats.html('');
-    for(let key in Messages._data) {
-      MessagesView.renderMessage(Messages._data[key])
+    for (let key in Messages._data) {
+      MessagesView.renderMessage(Messages._data[key]);
     }
   },
 
   renderMessage: function(message) {
     // TODO: Render a single message
     var $message = MessageView.render(message);
-    MessagesView.$chats.prepend($message)
+    MessagesView.$chats.prepend($message);
   },
 
   handleClick: function(event) {
