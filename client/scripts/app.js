@@ -22,12 +22,15 @@ var App = {
 
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
-    setInterval(App.fetch, 5000);
+    //setInterval(App.fetch, 5000);
   },
 
   fetch: function(callback = () => {}) {
     // fetch all message data from server using parse ajax
+
     Parse.readAll((data) => {
+      // Examine the response from the server request:
+      console.log(data);
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
       Messages.update(data, MessagesView.render); // setting render as call back, so update can decide when to run render

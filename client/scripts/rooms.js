@@ -5,17 +5,19 @@
 var Rooms = {
 
   // TODO: Define how you want to store the list of rooms
-  _data: {},
+  storage: {},
 
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
 
-  add: function (serverData) {
-    Messages._data[message.m]
+  add: function (serverData, callback) {
+    Rooms.storage[message]
   },
 
-  update: function () {
-
+  update: function (serverData, callback) {
+    for (let message of serverData) {
+      Rooms.storage[message.roomname] = message;
+    };
   },
 
   selected: function() {

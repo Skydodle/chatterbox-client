@@ -18,9 +18,6 @@ var FormView = {
       'text': FormView.$form.find('#message').val(),
       //event.target.val()
     };
-    console.log(message);
-
-
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
 
